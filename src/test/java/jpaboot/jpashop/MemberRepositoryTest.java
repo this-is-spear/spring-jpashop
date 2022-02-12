@@ -1,6 +1,7 @@
 package jpaboot.jpashop;
 
 import jpaboot.jpashop.domain.Member;
+import jpaboot.jpashop.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +24,7 @@ class MemberRepositoryTest {
 
         Long saveId = memberRepository.save(member);
 
-        Member findMember = memberRepository.find(saveId);
+        Member findMember = memberRepository.findOne(saveId);
         assertThat(findMember.getId()).isEqualTo(member.getId());
     }
 
